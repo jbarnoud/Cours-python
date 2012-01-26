@@ -1,0 +1,65 @@
+\mode<presentation>
+% Define the color theme
+\setbeamercolor*{structure}{fg=red!70!black,bg=white}
+\setbeamercolor{section in head/foot}{use=structure, fg=structure.fg, bg=structure.bg}
+\setbeamertemplate{section in head/foot shaded}[default][20]
+
+% Set up title fonts
+\usefonttheme[onlylarge]{structurebold}
+%\setbeamerfont*{frametitle}{size=\huge}
+\setbeamerfont*{frametitle}{size=\Large}
+
+% Remove the navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+
+%% Define the head bar with section titles
+\defbeamertemplate*{headline}{empty}{}
+\setbeamertemplate{headline}
+{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex]{section in head/foot}%
+    %\small{\insertsectionnavigationhorizontal{\paperwidth}{\hskip0pt plus1filll}{\hskip0pt plus1filll}}%
+    \footnotesize{\insertsectionnavigationhorizontal{\paperwidth}{}{}}%
+  \end{beamercolorbox}%
+}
+
+
+% Put the frame number at the bottom
+\setbeamertemplate{footline}{%
+    \usebeamerfont{structure}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{}
+        \begin{flushright}
+        \color{structure.fg}\insertframenumber\hspace*{1ex}
+        \end{flushright}
+    \end{beamercolorbox}%
+}
+
+\newcommand{\titleframe}{%
+\begin{frame}[plain]
+\vspace*{1cm}
+\titlepage
+\vspace*{-0.5cm}
+\begin{center}
+\includegraphics[width=4cm,angle=90]{img/logo/logo_paris7}\vspace{1.5cm}
+\end{center}
+\end{frame}
+}
+
+% http://newsgroups.derkeiler.com/Archive/Comp/comp.text.tex/2008-09/msg01339.html
+\newenvironment{transbox}{%
+\hspace*{-0.5cm}
+\begin{tikzpicture}
+\node[text width=\linewidth, inner sep=3mm, font=\Large\bfseries,
+fill=black!80,  fill opacity=0.5,text opacity=1, text=white] \bgroup%
+}{\egroup;\end{tikzpicture}}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+    \begin{transbox}
+    {\huge\insertsection}
+    \end{transbox}
+    \end{frame}
+}
+
+\mode<all>
