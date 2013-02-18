@@ -1,0 +1,11 @@
+# Vim stuff
+*.sw[a-z]
+# Latex stuff
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+
